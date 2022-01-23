@@ -36,3 +36,14 @@
 
 7. Coalesce:
    SELECT avg(coalesce(age,15)) from student;
+
+8. Between:
+   SELECT firstname,age from customers WHERE income<50000 and (age BETWEEN 30 and 50)
+
+9. In:
+   SELECT \* from employees where emp_no in (100001,100006,11008)
+
+10. Like and ILike:
+    SELECT COUNT(\*) FROM customers WHERE zip::TEXT LIKE '%2%' // casting before comparison
+    SELECT \* FROM employees WHERE first_name LIKE 'G%r'
+    SELECT \* FROM employees WHERE first_name ILIKE 'G%ger'
