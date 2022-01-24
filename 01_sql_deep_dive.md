@@ -64,6 +64,15 @@ Example: 2017-08-17T12:47:16+02:00
 
     SELECT \* FROM employees WHERE first_name ILIKE 'G%ger';
 
+11. Distinct:
+
+    SELECT DISTINCT salary FROM salaries;
+
+12. OrderBy:
+
+    SELECT \* FROM customers ORDER BY name DESC;
+    SELECT \* FROM customers ORDER BY LENGTH(first_name) DESC;
+
 # Date operators
 
 1. Current date:
@@ -88,11 +97,13 @@ Example: 2017-08-17T12:47:16+02:00
    SELECT EXTRACT(MONTH FROM DATE '1992/11/13');
    SELECT EXTRACT(YEAR FROM DATE '1992/11/13');
 
+5. Truncate:
+
    SELECT DATE_TRUNC('year', DATE '1992/11/13'); // truncation to year
    SELECT DATE_TRUNC('month', DATE '1992/11/13');  
    SELECT DATE_TRUNC('day', DATE '1992/11/13'); // no effect unless a timestamp
 
-5. Intervals:
+6. Intervals:
 
    SELECT \* FROM orders WHERE purchaseDate <= now() - interval '30 days'
 
@@ -100,9 +111,9 @@ Example: 2017-08-17T12:47:16+02:00
    INTERVAL '2 weeks ago'
    INTERVAL '1year 3 hours 20 minutes'
 
-   SELECT EXTRACT('year' FROM INTERVAL '1 year 2 months')
+   SELECT EXTRACT(year FROM INTERVAL '1 year 2 months')
 
-Exercises:
+#### Exercises:
 
 1. select \* from employees where EXTRACT(YEAR from age(birth_date)) > 60 // older than 60
    SELECT count(birth_date) FROM employees WHERE birth_date < now() - interval '61 years'
