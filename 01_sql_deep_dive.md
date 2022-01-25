@@ -100,7 +100,7 @@ Example: 2017-08-17T12:47:16+02:00
 5. Truncate:
 
    SELECT DATE_TRUNC('year', DATE '1992/11/13'); // truncation to year
-   SELECT DATE_TRUNC('month', DATE '1992/11/13');  
+   SELECT DATE_TRUNC('month', DATE '1992/z/13');  
    SELECT DATE_TRUNC('day', DATE '1992/11/13'); // no effect unless a timestamp
 
 6. Intervals:
@@ -127,3 +127,7 @@ Example: 2017-08-17T12:47:16+02:00
    WHERE DATE_TRUNC('month', orderdate) = date '2004-01-01';
 
 5. SELECT MAX(AGE(birth_date)) FROM employees;
+
+### Multi select
+
+1. SELECT a.emp_no, CONCAT(a.first_name,a.last_name) as "name", b.salary FROM employees as a, salaries as b;
