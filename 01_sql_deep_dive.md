@@ -130,4 +130,22 @@ Example: 2017-08-17T12:47:16+02:00
 
 ### Multi select
 
-1. SELECT a.emp_no, CONCAT(a.first_name,a.last_name) as "name", b.salary FROM employees as a, salaries as b;
+1. SELECT a.emp_no, CONCAT(a.first_name,a.last_name) as "name", b.salary FROM employees as a, salaries as b WHERE a.emp_no=b.emp_no;
+
+### Inner Join
+
+If you have a column that links the columns from table A to table B, you can use INNER JOIN
+
+1. select a.emp_no, CONCAT(a.first_name,' ', a.last_name) as "Name", b.salary
+   from employees as a
+   inner join salaries as b
+   on a.emp_no=b.emp_no
+   order by a.emp_no asc
+
+2. select a.emp_no, concat(a.first_name,' ',a.last_name), b.salary, c.title, c.from_date as "promoted on"
+   from employees as a
+   inner join salaries as b
+   on a.emp_no=b.emp_no
+   inner join titles as c
+   on c.emp_no=a.emp_no and c.from_date=(b.from_date + interval '2 days')
+   order by a.emp_no
