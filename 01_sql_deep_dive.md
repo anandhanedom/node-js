@@ -136,6 +136,8 @@ Example: 2017-08-17T12:47:16+02:00
 
 If you have a column that links the columns from table A to table B, you can use INNER JOIN
 
+Note: The INNER JOIN keyword selects all rows from both tables as long as there is a match between the columns. If there are records in the "Orders" table that do not have matches in "Customers", these orders will not be shown!
+
 1. select a.emp_no, CONCAT(a.first_name,' ', a.last_name) as "Name", b.salary
    from employees as a
    inner join salaries as b on a.emp_no=b.emp_no
@@ -144,5 +146,28 @@ If you have a column that links the columns from table A to table B, you can use
 2. select a.emp_no, concat(a.first_name,' ',a.last_name), b.salary, c.title, c.from_date as "promoted on"
    from employees as a
    inner join salaries as b on a.emp_no=b.emp_no
-   inner join titles as c on c.emp_no=a.emp_no and c.from_date=(b.from_date + interval '2 days')
+   inner join titles as c on c.emp_no=a.emp_no
+   where c.from_date=(b.from_date + interval '2 days')
    order by a.emp_no
+
+### Self Join
+
+This usually can be done when a table has a foreign key referencing its primary key.
+
+1. SELECT a.id, a.name AS "emmployee", b.name AS "supervisor name"
+   FROM employee AS a, INNER JOIN employee as b ON a.supervisorId = b.id;
+
+### Outer Join
+
+Adds the data that don't have a match
+
+2 types:
+
+1. Left join: returns all records from the left table (table1), and the matching records from the right table (table2). The result is 0 records from the right side, if there is no match.
+
+   SELECT \*
+   FROM TABLE_A AS a
+   Left \[OUTER] JOIN TABLE_B as b
+   ON a.id=b.id
+
+2. Right join: adds the data that don't have a match from table B
