@@ -163,7 +163,8 @@ Adds the data that don't have a match
 
 2 types:
 
-1. Left join: returns all records from the left table (table 1), and the matching records from the right table (table 2). The result is 0 records from the right side, if there is no match.
+1. Left join: returns all records from the left table (table 1), and the matching records from the right table (table 2).
+   The result is 0 records from the right side, if there is no match.
 
    SELECT \*
    FROM TABLE_A AS a
