@@ -159,6 +159,8 @@ This usually can be done when a table has a foreign key referencing its primary 
 
 ### Outer Join
 
+Refer: https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
+
 Adds the data that don't have a match
 
 2 types:
