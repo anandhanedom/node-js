@@ -73,6 +73,11 @@ Example: 2017-08-17T12:47:16+02:00
     SELECT \* FROM customers ORDER BY name DESC;
     SELECT \* FROM customers ORDER BY LENGTH(first_name) DESC;
 
+13. Cast
+
+    CAST(salary as TEXT);
+    salary::text;
+
 # Date operators
 
 1. Current date:
@@ -147,7 +152,7 @@ Note: The INNER JOIN keyword selects all rows from both tables as long as there 
    from employees as a
    inner join salaries as b on a.emp_no=b.emp_no
    inner join titles as c on c.emp_no=a.emp_no
-   where c.from_date=(b.from_date + interval '2 days')
+   and c.from_date=(b.from_date + interval '2 days')
    order by a.emp_no
 
 ### Self Join
