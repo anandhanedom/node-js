@@ -143,18 +143,6 @@ If you have a column that links the columns from table A to table B, you can use
 
 Note: The INNER JOIN keyword selects all rows from both tables as long as there is a match between the columns. If there are records in the "Orders" table that do not have matches in "Customers", these orders will not be shown!
 
-1. select a.emp_no, CONCAT(a.first_name,' ', a.last_name) as "Name", b.salary
-   from employees as a
-   inner join salaries as b on a.emp_no=b.emp_no
-   order by a.emp_no asc
-
-2. select a.emp_no, concat(a.first_name,' ',a.last_name), b.salary, c.title, c.from_date as "promoted on"
-   from employees as a
-   inner join salaries as b on a.emp_no=b.emp_no
-   inner join titles as c on c.emp_no=a.emp_no
-   and c.from_date=(b.from_date + interval '2 days')
-   order by a.emp_no
-
 ### Self Join
 
 This usually can be done when a table has a foreign key referencing its primary key.
@@ -187,3 +175,40 @@ Create a combination of every row
 ### Full outer join
 
 Return results from both whether they match or not. (both sides null instead of left or right joins)
+
+### Using
+
+Instead of ON (if same primary and foreign key)
+
+1. select e.emp_no, e.first_name, de.dept_no
+   from employees as e
+   inner join dept_emp as de USING(emp_no)
+
+### Exercise
+
+1. select a.emp_no, CONCAT(a.first_name,' ', a.last_name) as "Name", b.salary
+   from employees as a
+   inner join salaries as b on a.emp_no=b.emp_no
+   order by a.emp_no asc
+
+2. select a.emp_no, concat(a.first_name,' ',a.last_name), b.salary, c.title, c.from_date as "promoted on"
+   from employees as a
+   inner join salaries as b on a.emp_no=b.emp_no
+   inner join titles as c on c.emp_no=a.emp_no
+   and c.from_date=(b.from_date + interval '2 days')
+   order by a.emp_no
+
+3. select concat(customers.firstname,customers.lastname,' ') as "customer", orders.orderid
+   from customers
+   inner join orders on orders.orderid=customers.customerid
+   where customers.state in ('OH','NY','OR')
+
+4. select products.prod_id,inventory.quan_in_stock
+   from products
+   inner JOIN inventory
+   on products.prod_id = inventory.prod_id
+
+5. select concat(employees.first_name,employees.last_name,' ') as "employee" , departments.dept_name
+   from employees
+   inner join dept_emp on dept_emp.emp_no = employees.emp_no
+   inner join departments on departments.dept_no = dept_emp.dept_no;
