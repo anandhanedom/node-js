@@ -178,4 +178,12 @@ Adds the data that don't have a match
    Left \[OUTER] JOIN TABLE_B as b
    ON a.id=b.id
 
-2. Right join: adds the data that don't have a match from table B
+2. Right join: adds the data that don't have a match from table B. opposite of left join.
+
+### Cross Join
+
+Create a combination of every row
+
+### Full outer join
+
+Return results from both whether they match or not. (both sides null instead of left or right joins)
