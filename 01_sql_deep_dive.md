@@ -212,3 +212,11 @@ Instead of ON (if same primary and foreign key)
    from employees
    inner join dept_emp on dept_emp.emp_no = employees.emp_no
    inner join departments on departments.dept_no = dept_emp.dept_no;
+
+### Group by
+
+Spilts data into groups or chunks so as to apply functions againt the group rather than the entire table.
+
+1. select dept_no, count(\*)
+   from dept_emp
+   group by dept_no
