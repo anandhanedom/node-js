@@ -76,7 +76,7 @@ Example: 2017-08-17T12:47:16+02:00
 13. Cast
 
     CAST(salary as TEXT);
-    salary::text;
+    salary::TEXT;
 
 # Date operators
 
@@ -105,7 +105,7 @@ Example: 2017-08-17T12:47:16+02:00
 5. Truncate:
 
    SELECT DATE_TRUNC('year', DATE '1992/11/13'); // truncation to year
-   SELECT DATE_TRUNC('month', DATE '1992/z/13');  
+   SELECT DATE_TRUNC('month', DATE '1992/11/13');  
    SELECT DATE_TRUNC('day', DATE '1992/11/13'); // no effect unless a timestamp
 
 6. Intervals:
@@ -147,7 +147,7 @@ Note: The INNER JOIN keyword selects all rows from both tables as long as there 
 
 This usually can be done when a table has a foreign key referencing its primary key.
 
-1. SELECT a.id, a.name AS "emmployee", b.name AS "supervisor name"
+1. SELECT a.id, a.name AS "emmployee", b.name AS "supervisor name";
    FROM employee AS a, INNER JOIN employee as b ON a.supervisorId = b.id;
 
 ### Outer Join
@@ -216,6 +216,8 @@ Instead of ON (if same primary and foreign key)
 ### Group by
 
 Spilts data into groups or chunks so as to apply functions againt the group rather than the entire table.
+
+![group-by-order](img/groupby-order.png)
 
 1. select dept_no, count(\*)
    from dept_emp
