@@ -222,3 +222,15 @@ Spilts data into groups or chunks so as to apply functions againt the group rath
 1. select dept_no, count(\*)
    from dept_emp
    group by dept_no
+
+2. select hire_date, count(\*) as "people_employed"
+   from employees
+   GROUP by hire_date
+   order by "people_employed" desc
+
+3. select emp.emp_no, count(\*) as "amount_of_positions"
+   from employees as emp
+   inner join titles
+   on emp.emp_no = titles.emp_no and EXTRACT(YEAR from hire_date) > 1991
+   group by emp.emp_no
+   order by emp.emp_no
