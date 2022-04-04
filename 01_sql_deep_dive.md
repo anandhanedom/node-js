@@ -218,6 +218,7 @@ Instead of ON (if same primary and foreign key)
 Spilts data into groups or chunks so as to apply functions againt the group rather than the entire table.
 
 ![group-by-order](img/groupby-order.png)
+![group-by-order](img/groupby-order.png)
 
 1. select dept_no, count(\*)
    from dept_emp
