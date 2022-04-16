@@ -1,21 +1,16 @@
+const path = require("path");
+
 const express = require("express");
+
+const homePagePath = path.join(__dirname, "../public");
+const helpPagePath = path.join(__dirname, "../public/help.html");
+const aboutPagePath = path.join(__dirname, "../public/about.html");
 
 const app = express();
 
-app.get("", (req, res) => {
-  res.send("<h1>Weather</h1>");
-});
-
-app.get("/help", (req, res) => {
-  res.send([
-    { name: "John Doe", age: 12 },
-    { name: "Serah Doe", age: 12 },
-  ]);
-});
-
-app.get("/about", (req, res) => {
-  res.send("<h1>About page</h1>");
-});
+app.use(express.static(homePagePath));
+app.use("/about", express.static(aboutPagePath));
+app.use("/help", express.static(helpPagePath));
 
 app.get("/weather", (req, res) => {
   res.send({ forecast: "Partly cloudy", location: "Wayanad" });
