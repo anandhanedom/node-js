@@ -54,3 +54,20 @@ header h1 {
 .main-content {
   flex-grow: 1;
 }
+
+form {
+  margin: 16px 0;
+}
+
+input {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+button {
+  cursor: pointer;
+  border: 1px solid #888;
+  background: #888;
+  color: #fff;
+  padding: 8px;
+}
