@@ -65,5 +65,33 @@ MongoClient.connect(
     //     console.log(result.ops);
     //   }
     // );
+
+    // db.collection("users").findOne({ name: "Sundar" }, (error, user) => {
+    //   if (error) {
+    //     return console.log("Unable to fetch user!");
+    //   }
+
+    //   console.log(user);
+    // });
+
+    // db.collection("users")
+    //   .find({ age: 26 })
+    //   .toArray((error, users) => {
+    //     if (error) {
+    //       return console.log("Unable to fetch users!");
+    //     }
+
+    //     console.log(users);
+    //   });
+
+    // db.collection("users")
+    //   .find({ age: 26 })
+    //   .count((error, count) => {
+    //     if (error) {
+    //       return console.log("Unable to fetch user count!");
+    //     }
+
+    //     console.log(count);
+    //   });
   }
 );
