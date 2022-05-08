@@ -93,5 +93,44 @@ MongoClient.connect(
 
     //     console.log(count);
     //   });
+
+    // db.collection("users")
+    //   .updateOne(
+    //     {
+    //       _id: new ObjectID("6262ee3828ba5433f149d4a0"),
+    //     },
+    //     {
+    //       // $set: {
+    //       //   name: "Mike",
+    //       // },
+    //       $inc: {
+    //         age: 1,
+    //       },
+    //     }
+    //   )
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
+
+    db.collection("tasks")
+      .updateMany(
+        {
+          completed: false,
+        },
+        {
+          $set: {
+            completed: true,
+          },
+        }
+      )
+      .then((result) => {
+        console.log(result.modifiedCount);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 );
